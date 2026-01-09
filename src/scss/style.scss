@@ -1,0 +1,423 @@
+@import "utils/var";
+@import "utils/mixins";
+@import "base/base";
+@import "blocks/header";
+@import "blocks/hero";
+@import "blocks/footer";
+
+// --- About Section ---
+.about-section {
+  padding-top: 80px;
+  margin-bottom: 40px;
+}
+
+.about-grid {
+  display: flex;
+  gap: 60px;
+  margin-bottom: 80px;
+
+  @include sm {
+    flex-direction: column;
+    gap: 30px;
+  }
+}
+
+.about-tabs ul li {
+  font-size: 30px;
+  font-weight: 700;
+  color: $c-grey;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: right;
+  transition: 0.3s;
+
+  &:hover {
+    color: $c-accent;
+  }
+
+  &.active {
+    background: $grad-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.about-text {
+  border-left: 4px solid $c-grey;
+  padding-left: 30px;
+  max-width: 600px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $c-white;
+  }
+
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: $c-white;
+  }
+
+  @include sm {
+    border-left: none;
+    border-top: 4px solid $c-grey;
+    padding-left: 0;
+    padding-top: 20px;
+    max-width: 100%;
+  }
+}
+
+// --- Services Section ---
+.services-section {
+  padding-bottom: 60px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.icon-box {
+  background: $c-white;
+  width: 90px;
+  height: 90px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  img {
+    max-width: 50px;
+  }
+}
+
+.service-item {
+  h3 {
+    color: $c-primary;
+    font-size: 22px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    color: $c-white;
+    line-height: 1.5;
+    font-size: 16px;
+  }
+}
+
+// --- Team Section ---
+.team-section {
+  padding: 40px 0 60px 0;
+}
+
+.team-container {
+  background: $c-grey-bg;
+  border-radius: 12px;
+  display: flex;
+  box-shadow: none;
+  margin-bottom: 30px;
+
+  @include sm {
+    flex-direction: column;
+  }
+}
+
+.team-photo img {
+  width: 400px;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-top-left-radius: 12px;
+  border-bottom-left-radius: 12px;
+  margin-left: -15px;
+
+  @include sm {
+    width: 100%;
+    height: 300px;
+    margin-left: 0;
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+.team-content {
+  padding: 40px;
+  background: $c-grey-bg;
+  flex: 1;
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+
+  @include sm {
+    border-radius: 0 0 12px 12px;
+  }
+
+  .section-label {
+    color: $c-primary;
+    opacity: 1;
+  }
+
+  h2 {
+    font-size: 30px;
+    background: $grad-primary;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+  }
+}
+
+.team-author {
+  strong {
+    display: block;
+    color: $c-grey;
+    font-size: 16px;
+    margin-bottom: 6px;
+  }
+
+  span {
+    color: $c-grey;
+    font-size: 14px;
+  }
+}
+
+.dots-control {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 0;
+}
+
+.d-circle {
+  width: 16px;
+  height: 16px;
+  background: $c-primary;
+  border-radius: 50%;
+  opacity: 0.2;
+  cursor: pointer;
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+// --- Clients Section ---
+.clients-section {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.clients-title {
+  text-align: center;
+  color: $c-main;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.client-box {
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  img {
+    max-width: 70%;
+    max-height: 60%;
+  }
+}
+
+.c-blue { background: #1C4280; }
+.c-orange { background: #F48B30; }
+.c-purple { background: #9E4DC3; }
+.c-grey { background: #E2E2E4; }
+.c-red { background: #C71C36; }
+.c-light-blue { background: #DCF3F9; }
+.c-grey-light { background: #EAEAEA; }
+.c-dark { background: #282240; }
+.c-blue-dark { background: #1D4568; }
+.c-black { background: #000; }
+
+// --- Publications Section ---
+.publications-section {
+  background: $c-grey-bg;
+  padding: 60px 0;
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.news-card {
+  background: $c-white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.news-img img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.news-content {
+  padding: 20px;
+
+  h4 {
+    color: $c-primary;
+    font-size: 18px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    min-height: 44px;
+  }
+
+  .date {
+    font-size: 12px;
+    color: $c-grey;
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 700;
+  }
+
+  hr {
+    border: 0;
+    height: 4px;
+    background: $c-stroke;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+    color: #000;
+  }
+}
+
+// --- Team List Page Styles ---
+.logo-team-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.team-badge {
+  font-size: 36px;
+  font-weight: 400;
+  color: $c-main;
+  margin-left: 4px;
+  margin-top: 15px;
+}
+
+.team-intro {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.main-gradient-title {
+  font-size: 38px;
+  font-weight: 700;
+  text-align: center;
+  background: $grad-primary;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.4;
+  max-width: 900px;
+  margin: 0 auto;
+
+  @include xs { font-size: 30px; }
+}
+
+.team-list-section {
+  padding-bottom: 80px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 60px 40px;
+}
+
+.team-card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:hover {
+    .team-arrow path {
+      stroke: $c-accent;
+    }
+    .team-name {
+      color: $c-accent;
+      transition: 0.3s;
+    }
+  }
+}
+
+.team-img-wrap {
+  width: 100%;
+  height: 400px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.team-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.team-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: $c-main;
+  margin: 0 0 5px 0;
+}
+
+.team-role {
+  font-size: 14px;
+  color: $c-grey;
+  margin: 0;
+}
+
+.team-arrow {
+  flex-shrink: 0;
+  display: block;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+
+  circle {
+    fill: $c-grey-bg;
+    transition: 0.3s;
+  }
+
+  path {
+    stroke: $c-primary;
+    stroke-width: 2px;
+    fill: none;
+    transition: 0.3s;
+  }
+
+  &:hover circle {
+    fill: $c-grey-bg;
+  }
+
+  &:hover path {
+    stroke: $c-accent;
+  }
+}

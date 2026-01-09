@@ -1,0 +1,102 @@
+@import "../utils/var";
+@import "../utils/mixins";
+
+.gradient-wrapper {
+  position: relative;
+  background:
+          url('img/h.png') center top / auto 100vh no-repeat,
+          $grad-header;
+  border-radius: 0 0 12px 12px;
+  padding-bottom: 60px;
+  margin-bottom: 40px;
+  width: 100%;
+  z-index: 1;
+  box-shadow: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 20px;
+    right: 20px;
+    height: 10px;
+    background: $c-gradient-grey;
+    border-radius: 0 0 12px 12px;
+    z-index: -1;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 40px;
+    right: 40px;
+    height: 10px;
+    background: $c-gradient-light;
+    border-radius: 0 0 12px 12px;
+    z-index: -2;
+  }
+
+  @include sm {
+    background-size: 160% auto, cover;
+    background-position: center 20px, center;
+  }
+}
+
+.hero-container {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-title-box {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 100px;
+
+  h1 {
+    font-size: 38px;
+    font-weight: 700;
+    color: $c-white;
+    text-align: center;
+
+    @include xs { font-size: 28px; }
+  }
+}
+
+.scroll-down {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  border: 2px solid $c-white;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  transition: 0.3s;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    border-right: 2px solid $c-white;
+    border-bottom: 2px solid $c-white;
+    transform: translate(-50%, 0) rotate(45deg);
+  }
+
+  &:hover {
+    border-color: $c-accent;
+    &::after { border-color: $c-accent; }
+  }
+
+  @include sm { margin-bottom: 60px; }
+}
