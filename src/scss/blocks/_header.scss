@@ -1,0 +1,278 @@
+
+.header-section {
+  padding-top: 50px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 100;
+  width: 100%;
+
+
+  @include sm {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: transparent;
+  }
+}
+
+
+.header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  @include sm {
+    flex-wrap: wrap;
+    align-items: center;
+  }
+}
+
+
+.header-col-left {
+  display: flex;
+  align-items: center;
+
+  @include sm {
+    order: 2;
+    width: 50%;
+    margin-top: 45px;
+    position: relative;
+    z-index: 50;
+  }
+}
+
+.logo {
+  display: block;
+}
+
+.logo img {
+  max-width: 130px;
+  display: block;
+  margin-top: 15px;
+  margin-left: 5px;
+
+  @include sm {
+    margin: 0;
+    max-width: 100px;
+  }
+}
+
+
+.header-col-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+
+  @include sm {
+    order: 3;
+    width: 50%;
+    margin-top: 45px;
+    position: static;
+    align-items: flex-end;
+  }
+}
+
+
+.top-row-contacts {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 16px;
+  color: $c-white;
+  margin-bottom: 15px;
+
+
+  @include sm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 15px;
+
+
+    background: rgba(245, 245, 250, 0.2);
+
+    justify-content: space-between;
+    margin: 0;
+    z-index: 105;
+  }
+}
+
+.address, .fb-icon {
+  margin-left: 15px;
+  @include sm { display: none; }
+}
+
+.dot {
+  display: block;
+  width: 6px;
+  height: 6px;
+  background-color: $c-white;
+  border-radius: 50%;
+  margin: 0px 10px;
+  flex-shrink: 0;
+
+  @include sm { display: none !important; }
+}
+
+.lang-switch {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  .lang-item {
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 12px;
+    color: $c-white;
+    padding: 5px 7px;
+    border-radius: 8px;
+    transition: 0.3s;
+    text-transform: uppercase;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    &.active {
+      background: $c-accent;
+      color: white;
+    }
+  }
+
+  @include sm {
+    margin: 0;
+  }
+}
+
+.phone {
+  font-weight: 700;
+  margin-left: 15px;
+  color: $c-white;
+
+  @include sm {
+    display: block;
+    font-size: 16px;
+    margin: 0;
+    color: $c-white;
+  }
+}
+
+.main-menu {
+  margin-top: 5px;
+  display: flex;
+  gap: 15px;
+
+  a {
+    color: $c-white;
+    font-weight: 700;
+    font-size: 16px;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: $c-accent;
+      text-decoration: underline;
+    }
+  }
+
+  @include sm {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 100vh;
+
+
+    background: #F5F5FA;
+
+
+    padding: 140px 20px 20px;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    z-index: 99;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    a {
+      margin: 0;
+      width: 100%;
+
+
+      background: $c-white;
+
+      color: #323264;
+      text-align: center;
+      padding: 15px;
+      border-radius: 12px;
+      font-size: 24px;
+
+
+      box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.05);
+
+      &:hover, &.active {
+        background: $c-accent;
+        color: #fff;
+      }
+    }
+  }
+}
+
+.burger {
+  display: none;
+
+  @include sm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    width: 40px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    z-index: 102;
+
+    span {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background: $c-white;
+      border-radius: 3px;
+      margin-bottom: 6px;
+      transition: all 0.3s ease;
+      &:last-child { margin-bottom: 0; }
+    }
+
+    &.active {
+      align-items: center;
+      span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+      span { background: $c-accent; }
+    }
+  }
+}
+
+.header-light {
+  background: transparent;
+
+  .top-row-contacts, .main-menu a, .phone { color: $c-grey; }
+  .lang-item { color: $c-grey; &.active { color: white; } }
+  .main-menu a:hover { color: $c-accent; }
+  .burger span { background: $c-grey; }
+
+
+  .dot { background-color: #E6E6F0; }
+}
